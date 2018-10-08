@@ -38,7 +38,7 @@ git reset HEAD filename      bring a file from staging area down to working dire
 
 git remote add origin(nickname) url      define the repo (with a nickname)
 
-git remote      check the current remote repo
+git remote -v     check the current remote repo and url
 
 git push origin master      push the things in the local repo to the remote repo
 
