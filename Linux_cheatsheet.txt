@@ -1,0 +1,139 @@
+ssh connects to a server
+
+./   current directory
+
+pwd   print working directory, shows the path of current directory
+
+clear   cleans the terminal
+
+man commandname   mannual
+
+ls   shows the files under the current directory
+ls -l   sees the details of files 
+
+cd   change directory
+cd   FolderName goes into the folder
+cd ..   goes to the last folder
+cd /   goes to the root folder
+
+cp   copy
+cp A B   under the same folder, copy A and give it a new name B
+cp A /home/folder1/folder2   copy A and paste it into folder2
+
+rm   remove
+rm filename
+rm -r foldername   removes a folder with files in it, otherwise error
+rm -f name   forced to remove everything without any warning
+
+mkdir foldername   makes a new folder
+rmdir foldername   removes a empty folder
+
+mv filename dirname   moves a file into a directory
+mv filename1 filename2   renames a file
+
+echo 'text'   prints text to the screen
+echo 'text' > filename.format   save text into a file
+
+history   shows the commands that have been typed
+history > history.txt   saves history into a file
+
+- how to quickly check the contents of a file?
+more   sees a part of a file
+less   sees a part of a file and able to scroll it up and down
+cat   prints everthing of a file
+head   shows the first 10 lines
+tail   shows the last 10 lines
+-n	shows k lines
+
+wc filename   counter: line word charater filename
+-l	# of lines
+-w	# of words
+
+cut -f #	#-#	#,#,# 	filename   select specific columns in a file
+paste filename1 filename2 > filename3   put two files of columns together
+
+-change permissions:
+chmod ugo=rwx filename
+u=user
+g=group
+o=world
+w=write
+r=read
+x=execute
+
+find ~/xxxx/xxxx filename   finds a file
+
+wget html   downloads a file 
+
+&   background running
+jobs	check the background running jobs
+nohup   won't stop even close the terminal
+nohup commandline &
+
+gunzip filename.gz   unzip a file
+tar -zxvf	unzip *tar.gz
+
+-how to edit a file?
+emacs filename
+ctl+x to save, ctl+c to exit
+
+# upload file to the server
+scp -P port local_file remote_username@remote_ip:remote_folder
+
+# check the running apps
+ps -ef
+
+
+# Add path
+~/.bashrc
+
+source ~/.bashrc
+
+# grep
+
+grep "x" filename	grep any lines with x
+
+grep "^x" filename	grep any lines that begin with x...^ is the regular expression
+
+grep "[^ATCG]" filename   ^ regular expression here...grep any lines with A, T, C or G
+
+
+# grep options
+
+-v	invert-match
+-i	ignore case
+-c	count the lines
+
+
+|	pipe
+&&	excuate the subsequent command if the first one succeeds
+||	excuate the subsequent command if the first one fails
+
+
+# substitution
+echo "There are $(grep -c '^>' input.fasta) entries in my FASTA file."
+
+
+# check for diff between files
+
+shasum filename	will generate a string and one tiny change can alter the string
+
+diff -u filename1 filename2	# -u github like mode
+
+
+# directly work with zipped file
+zless, zgrep
+
+
+# sort filename   sort a file based on the first column by default
+
+# uniq	find all the unique values in all lines but usually need to sort first
+
+
+
+
+
+
+
+
+ 
