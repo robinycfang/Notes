@@ -1,0 +1,102 @@
+# The very first line of the file
+
+#!/bin/bash
+
+# After creating the bash file, need to make it excuatable
+
+chmod +x ./filename.sh
+
+# Define and use a variable
+
+your_var=""	# no spacec around =, and use ""
+
+echo ${your_var}	# use $ and {} for a defined variable
+
+# extracting a part of a string
+
+string="today is a good day"
+
+echo ${string:1:5}	# extracting from the second to the sixth
+
+# length
+
+${#string}
+
+# array
+
+arr_name=(val1 val2 val3)	# use space in-between
+
+arr_name[0]	#specific val
+
+arr_name[@]	#all the vals
+
+${#arr_name[@]}	#the number of vals
+
+${#arr_name[n]}	#the len of a specific val
+
+# pass parameters to a script
+
+./test.sh apple banana orange
+
+$0 = file name, $1 = the first parameter, etc...
+
+$* = group and present all the parameters that are passed in
+
+$@ = refer to all the parameters but treat them separately
+
+# if function
+
+if [xxxxx]
+then
+	xxxxx
+elif [xxxxxx]
+then
+	xxxxxx
+else
+	xxxxx
+fi
+
+# for loop
+
+for var in iterm1 iterm2 iterm3
+do
+	command
+done
+
+# while
+
+int=1
+while(( $int<=5 ))	#use(())
+do
+    echo $int
+    let "int++"		#no need for $
+done
+
+# function
+
+func_name(){
+	a
+	b
+	c
+}
+
+
+# get all file names under a folder 
+
+folder_path=''
+
+for file_name in ${folder_path}/*; do
+	echo ${file_name}	# the full path of the file
+	echo `basename ${file_name}`	# name only
+	echo `basename ${file_name} .txt`	# name without .format
+done
+
+
+
+
+
+
+
+
+
+
