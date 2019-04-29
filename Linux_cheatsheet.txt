@@ -73,10 +73,6 @@ nohup commandline &
 gunzip filename.gz   unzip a file
 tar -zxvf	unzip *tar.gz
 
--how to edit a file?
-emacs filename
-ctl+x to save, ctl+c to exit
-
 # upload file to the server
 scp -P port local_file remote_username@remote_ip:remote_folder
 
@@ -88,26 +84,6 @@ ps -ef
 ~/.bashrc
 
 source ~/.bashrc
-
-# grep
-
-grep "x" filename	grep any lines with x
-
-grep "^x" filename	grep any lines that begin with x...^ is the regular expression
-
-grep "[^ATCG]" filename   ^ regular expression here...grep any lines with A, T, C or G
-
-
-# grep options
-
--v	invert-match
--i	ignore case
--c	count the lines
-
-
-|	pipe
-&&	excuate the subsequent command if the first one succeeds
-||	excuate the subsequent command if the first one fails
 
 
 # substitution
@@ -127,9 +103,24 @@ zless, zgrep
 
 # sort filename   sort a file based on the first column by default
 
+sort -kPOS1[,POS2] sample.txt	start sorting by POS1 and end by POS2 (end of the line by default)
+
+# sample.txt:	chr1	564961346
+sort -k1,1V -k2,2n sample.txt	sort by the first column and then the second column (defined as numeric)
+
+
 # uniq	find all the unique values in all lines but usually need to sort first
+# uniq -c	shows the counts
 
 
+|	pipe
+&&	excuate the subsequent command if the first one succeeds
+||	excuate the subsequent command if the first one fails
+
+
+# join
+join -1 <file_1_field> -2 <file_2_field> <file1> <file2>
+# default omits the unpaired lines, add -a to keep those lines
 
 
 
