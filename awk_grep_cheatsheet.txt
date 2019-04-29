@@ -1,0 +1,109 @@
+################## awk ############################
+
+awk -F '\t' '{print $2}' sample.txt
+	
+# print the second column in sample.txt
+# -F	input file separator, default is space and tab
+# $1 = the first column, $0 = the rows
+
+
+awk '{if($1!~"^#"){print $8}}' demo.vcf
+# ignore the comments and print the 8th column
+# conditions following if require ()
+# ~ match regular expression, ~! reverse match reg exp
+
+
+# Internal variables
+awk -F '\t' '{print NR, $2}'
+# , separates the outputs and space will be shown
+# NR = internal variable, show the number of rows
+# NF = internal variable, shows the number of columns after separating by the delimiter
+# $NF = the last column, $(NF-1) = the last second column and so on...
+# Other internal variables:
+	FILENAME = file name
+	FS = column separator
+	RS = row separator
+	OFS = output column separator
+	ORS = output row separator
+
+# if you want to change internal var, use -v
+awk -v ORS='\t' -v val=5 'if($6>val) {print $2 $3}' sample.txt
+
+	
+
+# Internal functions
+	tolower() = to lowercase
+	length() = returns len of the str
+	sqrt()	= quare root
+	rand() = random number
+	split($col, var, "by")	# split values of a column by a pattern
+	# split($1, x, ";") split the values in column 1 by ";" and pass it to variable x, you can extract x later by x[1]
+
+
+# Conditions
+
+# if (con) {action} else if (con) {action} else {action}
+awk -F '\t' '{if ($1~"^#") {print} else if ($2 > 10 && $2 < 30) {print}}' example.txt
+# print the header and rows with second column values between 10 and 30
+# && = and, || = or
+
+
+# for loop
+# for (initial_con; final_con; iteration) {action}
+awk 'BEGIN { for (i=1; i<5; i++) {print i} }'
+
+# while loop
+# while (final_con) {action}
+awk 'BEGIN { i=1; while(i<5) {print i; i++}}'
+
+# break and continue: just like python
+awk 'BEGIN{ for(i=1; i<10; i++) {if(i==5) {continue} else{print i}}}'
+
+
+
+
+###################################### grep #####################################################
+
+# grep
+# "" allows for variables, '' = absolute values
+
+grep "x" filename	grep any lines with x
+
+grep "^x" filename	grep any lines that begin with x...^ is the regular expression
+
+grep "[^ATCG]" filename   ^ regular expression here...grep any lines with A, T, C or G
+
+grep "Olfr141[13]" Mus_musculus.GRCm38.75_chr1_genes.txt	1411 or 1413
+
+grep -E "(Olfr1413|Olfr1411)" Mus_musculus.GRCm38.75_chr1_genes.txt	any lines that have x or y
+
+
+
+
+# grep options
+
+-v	invert-match
+-i	ignore case
+-c	count the lines
+-B	show context before
+-A	show context after
+-C	show before and after
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
