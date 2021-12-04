@@ -2,6 +2,13 @@
 
 #!/bin/bash
 
+# when something fails
+
+# By default, a pipeline returns the return value of the last element. pipefail means that if any element of the pipeline fails, then the pipeline as a whole will fail.
+set -o pipefail
+# exit immediately if a simple command exits with a Non-zero status
+set -e
+ 
 # After creating the bash file, need to make it excuatable
 
 chmod +x ./filename.sh
@@ -46,10 +53,10 @@ $@ = refer to all the parameters but treat them separately
 
 # if function
 
-if [xxxxx]
+if [[ xxxxx ]]
 then
 	xxxxx
-elif [xxxxxx]
+elif [[ xxxxxx ]]
 then
 	xxxxxx
 else
