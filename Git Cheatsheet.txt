@@ -1,21 +1,26 @@
-cd path      change directory
-
-cd ~      return to the home folder
-
-cd ..      return to the last folder
+### Working copies -> Staging area -> Repository 
 
 git init      initialize a project for Git
 
-Working copies -> Staging area -> Repository 
+git status      check current status, anything to add or commit
 
-git status      check the working directory
+### from working copies to staging area
 
 git add filename      add files to the staging area
 
 git add .      add all
 
+git reset HEAD filename      bring a file from staging area down to working directory
+
+### from staging area to repo
+
 git commit -m "comments"      commite the changes and label with comments
 
+git push origin master      push the things in the local repo to the remote repo
+
+git push -u nickname master      push all the things to the nickname repo
+
+### and more
 git log      see the log
 
 git diff      check the difference between working directory and repository
@@ -30,16 +35,10 @@ git mv filenmae1 floder/filename2      move the file to the designated folder an
 
 git checkout -- filename      replace the file in the working directory with a new file from the repository
 
-git reset HEAD filename      bring a file from staging area down to working directory
-
 # How to get one of the previous commits?
-  git log      -> check and write down the commit IDs
-  git checkout XXX(few characters from the beginning) -- filename
+  git log      copy the commit ID
+  git checkout XXX(or a few characters from the beginning) -- filename
 
 git remote add origin(nickname) url      define the repo (with a nickname)
 
 git remote -v     check the current remote repo and url
-
-git push origin master      push the things in the local repo to the remote repo
-
-git push -u nickname master      push all the things to the nickname repo
